@@ -24,6 +24,13 @@ module "k3s-cluster" {
   s3_bucket_arn = module.s3.bucket_arn
 }
 
+module "s3" {
+  source = "../../modules/s3"
+
+  project_name = "cpa-app"
+  env          = "dev"
+}
+
 output "k3s_master_ip" {
   value = module.k3s-cluster.master_public_ip
 }
