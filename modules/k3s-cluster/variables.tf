@@ -13,3 +13,8 @@ variable "k3s_token" {
   description = "Token to join K3s cluster (get from master node)"
   sensitive   = true # ログに表示されないようにする
 }
+
+variable "s3_bucket_arn" {
+  type        = string
+  description = "ARN of the S3 bucket for PDF storage"
+}

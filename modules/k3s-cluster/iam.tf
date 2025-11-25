@@ -40,6 +40,18 @@ resource "aws_iam_role_policy" "k3s_policy" {
           "ec2:DescribeLaunchTemplateVersions"
         ]
         Resource = "*"
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:ListBucket"
+        ]
+        Resource = [
+                  var.s3_bucket_arn,       # バケット自体への操作
+                  "${var.s3_bucket_arn}/*" # 中身のオブジェクトへの操作
+                ]
       }
     ]
   })
