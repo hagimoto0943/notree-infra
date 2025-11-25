@@ -1,0 +1,37 @@
+# --- Terraform ---
+# ローカルのstateファイル (S3を使っていても念のため除外)
+*.tfstate
+*.tfstate.*
+
+# クラッシュログ
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# .terraform ディレクトリ (プラグインやキャッシュ)
+.terraform/
+.terraform.lock.hcl
+
+# 変数定義ファイル (パスワードなどを書くことがあるため除外推奨)
+*.tfvars
+*.tfvars.json
+
+# --- AWS / SSH Keys ---
+# 秘密鍵は絶対NG
+*.pem
+
+# --- Kubernetes ---
+# kubeconfigファイル
+config
+kubeconfig
+.kube/
+
+# --- Mac / OS ---
+.DS_Store
+
+# --- Go / App ---
+# ビルド成果物 (バイナリ)
+/build/
+/dist/
